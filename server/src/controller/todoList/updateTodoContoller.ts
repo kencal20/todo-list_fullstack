@@ -19,4 +19,3 @@ export async function updateTodoController(req: Request, res: Response) {
     }
 }
 
-module.exports = updateTodoController
