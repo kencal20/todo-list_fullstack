@@ -1,16 +1,16 @@
-const TodoList = require("../../schemas/todoListSchema");
+import { Request, Response } from "express";
+import { TodoList } from "../../schemas/todoListSchema";
 
-
-async function getTodoListController(req, res) {
+export async function getTodoListController(req:Request, res:Response) {
     try {
         const todoList = await TodoList.find();
         res.json({ message: "Here is the list of to-do items", todoList });
-    } catch (error) {
+    } catch (error:any) {
         res.status(500).json({ message: "Error retrieving to-do items", error });
     }
 }
 
-async function getTodoItemController(req, res) {
+export async function getTodoItemController(req:Request, res:Response) {
     const { id } = req.params;
     try {
         const todoItem = await TodoList.findById(id);
@@ -18,12 +18,9 @@ async function getTodoItemController(req, res) {
             return res.status(404).json({ message: "To-do item not found" });
         }
         res.json({ message: "Here is the item you are searching for", todoItem });
-    } catch (error) {
+    } catch (error:any) {
         res.status(500).json({ message: "Error retrieving the to-do item", error });
     }
 }
 
-module.exports = {
-    getTodoListController,
-    getTodoItemController,
-};
+

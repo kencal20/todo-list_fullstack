@@ -1,6 +1,7 @@
-const TodoList = require('../../schemas/todoListSchema')
+import { Request, Response } from "express"
+import { TodoList } from "../../schemas/todoListSchema"
 
- async function createTodoController(req, res) {
+export async function createTodoController(req: Request, res: Response) {
     const { title, details, dueDate, status, priority, category } = req.body
     try {
         const todoItem = new TodoList({
@@ -13,9 +14,8 @@ const TodoList = require('../../schemas/todoListSchema')
         })
         const createdTodoItem = await todoItem.save()
         res.json({ message: 'The to-do item has been created successfully', createdTodoItem })
-    } catch (error) {
+    } catch (error:any) {
         res.status(500).json({ message: "Error creating the to-do item", error })
     }
 }
 
-module.exports=createTodoController;
