@@ -1,9 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "tsc && nodemon dist/server.js",
+    "build": "tsc",
+    "dev":"nodemon src/server.ts"
   },
   "keywords": [],
   "author": "",
