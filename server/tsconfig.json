@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",           /* Ensure that the root folder is correctly specified */
+    "outDir": "./dist",          /* Keep the output directory */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],       /* Adjust to ensure TypeScript looks for source files in the 'src' directory */
+  "exclude": ["./dist"]            /* Ensure that only the 'dist' folder is excluded */
+}
