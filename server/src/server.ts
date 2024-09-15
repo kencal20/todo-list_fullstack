@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import {todoRoutes} from './routes/todoList'
+import router from './routes/todoList';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error in Connecting to the db'));
 db.once('open', () => console.log('Success in connecting to the db'));
 
-app.use('/todolist',todoRoutes);
+app.use('/todolist', router); 
+
 
 app.listen(port, () => console.log(`Your Server is hosted on ${port}`));
-
