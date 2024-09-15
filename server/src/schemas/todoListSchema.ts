@@ -1,4 +1,4 @@
-const mongoose=require('mongoose')
+import mongoose  from "mongoose"
 
 const todoListSchema = new mongoose.Schema({
     title: {
@@ -33,6 +33,4 @@ const todoListSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const TodoList = mongoose.model('TodoList', todoListSchema)
-
-module.exports=TodoList;
+export const TodoList = mongoose.model('TodoList', todoListSchema)
