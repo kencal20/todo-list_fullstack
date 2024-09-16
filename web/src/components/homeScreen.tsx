@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { componentProps } from "./objects.models";
 import axios from "axios";
+import CardComponent from "./cardComponent";
 
 type Props = {
     todos: componentProps['formProps'][];
@@ -38,31 +39,40 @@ export default function HomeScreen({ todos, setTodos, fetchTodos }: Props) {
             >
                 Dashboard
             </button>
+
             <ul className="space-y-4">
                 {todos.map((todo) => (
-                    <li key={todo._id} className="bg-white p-4 rounded-lg shadow-md">
-                        <h3 className="text-lg font-bold">{todo.title}</h3>
-                        <p>{todo.details}</p>
-                        <p className="text-sm text-gray-500">Due: {new Date(todo.dueDate).toLocaleDateString()}</p>
-                        <div className="flex justify-between items-center mt-2">
-                            <span className={`inline-block px-3 py-1 rounded-full text-sm ${todo.priority === 'high' ? 'bg-red-500 text-white' : todo.priority === 'medium' ? 'bg-yellow-500 text-white' : 'bg-green-500 text-white'}`}>
-                                {todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}
-                            </span>
-                            <div className="space-x-2">
-                                <button
-                                    onClick={() => todo._id && handleDelete(todo._id)}
-                                    className="ml-auto bg-red-700 text-white p-2 rounded hover:bg-red-800"
-                                >
-                                    Delete
-                                </button>
-                                <button
-                                    onClick={() => navigate(`/edittodo/${todo._id}`)}
-                                    className="ml-auto bg-blue-700 text-white p-2 rounded hover:bg-blue-800"
-                                >
-                                    Edit
-                                </button>
-                            </div>
-                        </div>
+                    <li key={todo._id}>
+                        <CardComponent 
+                            title={todo.title} 
+                            backgroundColor="bg-white" 
+                            textColor="text-gray-800"
+                            onClick={() => navigate(`/edittodo/${todo._id}`)} 
+                        >
+                            <>
+                                <p>{todo.details}</p>
+                                <p className="text-sm text-gray-500">Due: {new Date(todo.dueDate).toLocaleDateString()}</p>
+                                <div className="flex justify-between items-center mt-2">
+                                    <span className={`inline-block px-3 py-1 rounded-full text-sm ${todo.priority === 'high' ? 'bg-red-500 text-white' : todo.priority === 'medium' ? 'bg-yellow-500 text-white' : 'bg-green-500 text-white'}`}>
+                                        {todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}
+                                    </span>
+                                    <div className="space-x-2">
+                                        <button
+                                            onClick={() => todo._id && handleDelete(todo._id)}
+                                            className="ml-auto bg-red-700 text-white p-2 rounded hover:bg-red-800 text-lg "
+                                        >
+                                            Delete
+                                        </button>
+                                        <button
+                                            onClick={() => navigate(`/edittodo/${todo._id}`)}
+                                            className="ml-auto bg-blue-700 text-white p-2 rounded hover:bg-blue-800 text-lg"
+                                        >
+                                            Edit
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        </CardComponent>
                     </li>
                 ))}
             </ul>
