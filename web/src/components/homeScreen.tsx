@@ -47,7 +47,6 @@ export default function HomeScreen({ todos, setTodos, fetchTodos }: Props) {
                             title={todo.title} 
                             backgroundColor="bg-white" 
                             textColor="text-gray-800"
-                            onClick={() => navigate(`/edittodo/${todo._id}`)} 
                         >
                             <>
                                 <p>{todo.details}</p>
