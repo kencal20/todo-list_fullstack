@@ -23,7 +23,7 @@ interface inputProps {
 
 interface cardProps {
   title: string;
-  value: number;
+  children: React.ReactNode;
   backgroundColor?: string;
   textColor?: string;
   onClick?: () => void;
