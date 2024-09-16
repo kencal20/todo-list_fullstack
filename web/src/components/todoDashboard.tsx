@@ -43,11 +43,12 @@ export default function Dashboard({ todos, fetchTodos }: Props) {
             <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <CardComponent 
                     title="Total Todos"
-                    value={totalTodos}
                     backgroundColor="bg-white"
                     textColor="text-gray-800"
                     onClick={() => setFilter(null)}
-                />
+                >
+                    {totalTodos}
+                </CardComponent>
             </div>
 
             <div className="mb-6">
@@ -55,49 +56,56 @@ export default function Dashboard({ todos, fetchTodos }: Props) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                     <CardComponent 
                         title="High Priority"
-                        value={priorityCounts.high}
                         backgroundColor="bg-red-100"
                         textColor="text-red-800"
                         onClick={() => setFilter('high')}
-                    />
+                    >
+                        {priorityCounts.high}
+                    </CardComponent>
                     <CardComponent 
                         title="Medium Priority"
-                        value={priorityCounts.medium}
                         backgroundColor="bg-yellow-100"
                         textColor="text-yellow-800"
                         onClick={() => setFilter('medium')}
-                    />
+                    >
+                        {priorityCounts.medium}
+                    </CardComponent>
                     <CardComponent 
                         title="Low Priority"
-                        value={priorityCounts.low}
                         backgroundColor="bg-green-100"
                         textColor="text-green-800"
                         onClick={() => setFilter('low')}
-                    />
+                    >
+                        {priorityCounts.low}
+                    </CardComponent>
                 </div>
+
                 <h3 className="text-xl font-bold mb-4 text-gray-700">Filter by Status</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <CardComponent 
                         title="Completed"
-                        value={statusCounts.completed}
                         backgroundColor="bg-blue-100"
                         textColor="text-blue-800"
                         onClick={() => setFilter('completed')}
-                    />
+                    >
+                        {statusCounts.completed}
+                    </CardComponent>
                     <CardComponent 
                         title="Pending"
-                        value={statusCounts.pending}
                         backgroundColor="bg-orange-100"
                         textColor="text-orange-800"
                         onClick={() => setFilter('pending')}
-                    />
+                    >
+                        {statusCounts.pending}
+                    </CardComponent>
                     <CardComponent 
                         title="Deleted"
-                        value={statusCounts.deleted}
                         backgroundColor="bg-gray-200"
                         textColor="text-gray-800"
                         onClick={() => setFilter('deleted')}
-                    />
+                    >
+                        {statusCounts.deleted}
+                    </CardComponent>
                 </div>
             </div>
 

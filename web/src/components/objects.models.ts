@@ -26,6 +26,7 @@ interface cardProps {
   children: React.ReactNode;
   backgroundColor?: string;
   textColor?: string;
+  onClick?: () => void
 }
 
 export interface componentProps {
