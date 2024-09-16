@@ -9,7 +9,7 @@ export default function CardComponent({ title, children, backgroundColor = "bg-w
             onClick={onClick}
         >
             <h3 className={`text-lg font-semibold ${textColor}`}>{title}</h3>
-            <p className={`text-2xl font-bold ${textColor}`}>{children}</p>
+            <p className={`text-2xl font-semibold ${textColor}`}>{children}</p>
         </div>
     );
 }
